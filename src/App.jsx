@@ -28,9 +28,9 @@ function App() {
       
       const response = await fetch(url);
       const jsonData = await response.json();
-      console.log('Fetched data:', jsonData); // Check what data looks like
+      // console.log('Fetched data:', jsonData);
       
-      // Make sure we're setting the data correctly
+   
       if (jsonData.alerts) {
         setData({
           alerts: jsonData.alerts,
@@ -47,14 +47,7 @@ function App() {
     }
   };
 
-  // Debug logs
-  console.log('Current state:', {
-    alerts: data.alerts,
-    loading,
-    error,
-    selectedCategory,
-    currentPage
-  });
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -74,7 +67,6 @@ function App() {
           pagination={data.pagination}
           currentPage={currentPage}
           onPageChange={(page) => {
-            console.log('Page changed to:', page); // Debug log
             setCurrentPage(page);
             window.scrollTo(0, 0);
           }}
